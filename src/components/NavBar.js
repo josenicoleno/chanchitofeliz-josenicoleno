@@ -1,3 +1,5 @@
+import CarWidget from './CarWidget'
+
 const NavBar = () => {
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -21,6 +23,7 @@ const NavBar = () => {
                             <a className="nav-link">Contacto</a>
                         </li>
                     </ul>
+                    <CarWidget />
                 </div>
             </div>
         </nav>
