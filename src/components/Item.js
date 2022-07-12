@@ -1,13 +1,14 @@
 import React from "react";
 
-const Item = ({id, title, description, price, pictureUrl}) =>{
+const Item = ({id, title, price, description, category, image}) =>{
     return(
-        <div>
-            <h2>{title}</h2>
-            <p>{description}</p>
-            <p>{price}</p>
-            <img src={pictureUrl} alt={title}/>
-            <a href={"/"+ id}>Ver detalle</a>
+        <div className="card" style={{width:`18rem`}} align="center">
+            <img className="card-img-top" src={image} alt={title}/>
+            <div className="card-body">
+                <h5 className="card-title">{title}</h5>
+                <p className="card-text">{description}</p>
+                <a href={"/"+ id} className="btn btn-primary">Ver detalle</a>
+            </div>
         </div>
     )
 }
