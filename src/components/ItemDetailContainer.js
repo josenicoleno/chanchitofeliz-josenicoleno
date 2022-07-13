@@ -26,7 +26,7 @@ const ItemDetailContainer = ()=>{
     }else{
     return (
         <div>
-            {<ItemDetail item={results}/>}
+            <ItemDetail item={results}/>
         </div>
     )} 
 }

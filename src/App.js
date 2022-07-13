@@ -4,12 +4,17 @@ import ItemListContainer from './components/ItemListContainer';
 import NavBar from './components/NavBar'
 
 function App() {
-  
+  //
   return (
-    <div className="App">
+    <div className="d-flex flex-column vh-100">
       <NavBar />
-      <ItemDetailContainer />
-      <ItemListContainer greeting={"Entregado a tiempo"}/>
+      {/* <ItemDetailContainer></ItemDetailContainer> */}
+      <ItemListContainer greeting={"Entregado a tiempo"} />
+      <footer className="footer mt-auto py-3 bg-light">
+        <div className="container">
+          <span className="text-muted">José Nicoleno | Chanchito feliz 2022.</span>
+        </div>
+      </footer>
     </div>
   );
 }
