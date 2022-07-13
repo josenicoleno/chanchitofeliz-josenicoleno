@@ -10,12 +10,23 @@ const ItemListContainer = ({greeting}) => {
    // console.log(products)
    const [loading, setLoading] = useState(true)
    const [list, setList] = useState([])
-   
+ 
+   /*
    useEffect(() =>{
     setTimeout(setLoading, 2000, false);
     console.log('useEffect')
    },[])
-
+   */
+   
+   useEffect(() => {
+    const promesa = new Promise(function (res, rej){
+        setTimeout(() => {
+            setList({products})
+            setLoading(false)
+        }, 2000);
+    }) 
+   }, [])
+   
     return (
         <div>
             {greeting}
