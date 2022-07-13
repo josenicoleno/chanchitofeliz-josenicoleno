@@ -17,8 +17,7 @@ const ItemDetailContainer = ()=>{
             setErr('Ocurrió algo extraño!!')
         })
     }, [])
-    console.log(results)
-    
+        
     if (isLoading){
         return <span> Cargando...</span>
     }
