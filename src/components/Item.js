@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 
-const Item = ({ id, name, status, species, category, image }) => {
+const Item = ({ id, name, status, species, image }) => {
     return (
         <div className="card bg-dark text-white h-100" style={{ width: `18rem` }}>
             <img className="card-img opacity-75" src={image} alt={name} />

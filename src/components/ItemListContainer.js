@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from "react";
 import ItemCount from "./ItemCount";
 import ItemList from "./ItemList";
-import products from "../products.json"
 
 const ItemListContainer = ({ greeting }) => {
     function onAddCallback(n) {
         alert(`${n} productos agregados`)
     }
-    // console.log(products)
+    
     const [loading, setLoading] = useState(true)
-    const [list, setList] = useState([]) //Cómo uso list en lugar de {products}?
-
+    const [list, setList] = useState([])
 
     /* useEffect(() => {
         const promesa = new Promise(function (res, rej) {
@@ -28,7 +26,7 @@ const ItemListContainer = ({ greeting }) => {
             setLoading(false)
             setList(json.results)
         })
-    })
+    }, [])
 
     return (
         <div>

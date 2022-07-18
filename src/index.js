@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { createRoot } from 'react-dom/client';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import Episodies from './Views/Episodies'
+import EpisodeDetailContainer from './Views/EpisodeDetailContainer'
 import PageNotFound from './components/PageNotFound';
 import ItemListContainer from './components/ItemListContainer';
 import NavBar from './components/NavBar';
@@ -19,6 +20,7 @@ root.render(
             <Route index element={<ItemListContainer />} />
             <Route path='producto/:id' element={<ItemDetailContainer />} />
             <Route path='episodios' element={<Episodies />} />
+            <Route path='episodio/:id' element={<EpisodeDetailContainer />} />
             <Route path='*' element={<PageNotFound />} />
         </Routes>
         <Footer />
