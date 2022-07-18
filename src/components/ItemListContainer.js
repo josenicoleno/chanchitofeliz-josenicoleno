@@ -9,22 +9,26 @@ const ItemListContainer = ({ greeting }) => {
     }
     // console.log(products)
     const [loading, setLoading] = useState(true)
-    const [list, setList] = useState([]) //Como uso list en lugar de {products}?
-    /*
-    useEffect(() =>{
-     setTimeout(setLoading, 2000, false);
-     console.log('useEffect')
-    },[])
-    */
+    const [list, setList] = useState([]) //Cómo uso list en lugar de {products}?
 
-    useEffect(() => {
+
+    /* useEffect(() => {
         const promesa = new Promise(function (res, rej) {
             setTimeout(() => {
-                setList({ products })
+                setList(({ products }))
                 setLoading(false)
             }, 2000);
         })
-    }, [])
+    }, []) */
+    
+    useEffect(()=> {
+        fetch("https://rickandmortyapi.com/api/character")
+        .then((res) => res.json())
+        .then((json)=> {
+            setLoading(false)
+            setList(json.results)
+        })
+    })
 
     return (
         <div>
@@ -34,7 +38,7 @@ const ItemListContainer = ({ greeting }) => {
                 <h3>cargando</h3>
             ) : (
                 <div className="container py-5">
-                    <ItemList items={products} />
+                    <ItemList items={list} /> {/*acá quiero usar list en lugar de products*/}
                 </div>
             )
             }

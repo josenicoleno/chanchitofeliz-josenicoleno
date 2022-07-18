@@ -1,13 +1,15 @@
 import React, {useEffect, useState} from 'react'
+import { useParams } from 'react-router-dom';
 import ItemDetail from './ItemDetail';
 
 const ItemDetailContainer = ()=>{
     const [results, setResults] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const [err, setErr] = useState('')
-
+    const {id} = useParams()
+    
     useEffect(() => {
-        fetch('https://rickandmortyapi.com/api/character/1')
+        fetch('https://rickandmortyapi.com/api/character/' + id)
         .then((res) => res.json())
         .then((json) => {
             setIsLoading(false)
@@ -16,7 +18,7 @@ const ItemDetailContainer = ()=>{
         .catch((err) => {
             setErr('Ocurrió algo extraño!!')
         })
-    }, [])
+    }, [id])
         
     if (isLoading){
         return <span> Cargando...</span>
