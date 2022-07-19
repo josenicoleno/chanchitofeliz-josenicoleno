@@ -30,13 +30,13 @@ const ItemListContainer = ({ greeting }) => {
 
     return (
         <div>
-           {/*  {greeting}
+            {/* {greeting}
             <ItemCount stock={5} initial={1} onAdd={onAddCallback} /> */}
             {loading ? (
                 <h3>cargando</h3>
             ) : (
                 <div className="container py-5">
-                    <ItemList items={list} /> {/*acá quiero usar list en lugar de products*/}
+                    <ItemList items={list} />
                 </div>
             )
             }

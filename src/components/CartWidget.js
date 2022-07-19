@@ -1,6 +1,6 @@
 import React from "react";
 
-const CarWidget = () => {
+const CartWidget = () => {
     return <button className="btn btn-outline-success ms-auto">
         <svg xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -19,4 +19,4 @@ const CarWidget = () => {
     </button>
 
 }
-export default CarWidget;
+export default CartWidget;
