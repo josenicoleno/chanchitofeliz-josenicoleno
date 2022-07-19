@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import ItemCount from "./ItemCount";
+/* import ItemCount from "./ItemCount"; */
 import ItemList from "./ItemList";
 
 const ItemListContainer = ({ greeting }) => {

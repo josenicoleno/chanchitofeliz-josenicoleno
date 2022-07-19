@@ -12,14 +12,15 @@ const ItemDetailContainer = ()=>{
         fetch('https://rickandmortyapi.com/api/character/' + id)
         .then((res) => res.json())
         .then((json) => {
-            setIsLoading(false)
             setResults(json)
         })
         .catch((err) => {
+            console.error('entras')
             setErr('Ocurrió algo extraño!!')
         })
+        .finally(()=>setIsLoading(false))
     }, [id])
-        
+
     if (isLoading){
         return <span> Cargando...</span>
     }
