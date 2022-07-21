@@ -7,7 +7,7 @@ const ItemCount = ({ stock, initial, onAdd}) => {
         setCount(count + 1)
     }
     const decrementar = () => {
-        setCount(valAnt => valAnt > 0 ? count - 1 : count)
+        setCount(valAnt => valAnt > 1 ? count - 1 : count)
     }
     const agregarCarrito = () => {
         count <= stock ? onAdd(count) : alert("No hay suficientes productos")
