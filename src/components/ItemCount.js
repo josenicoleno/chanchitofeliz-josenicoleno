@@ -2,19 +2,16 @@ import React, { useState } from "react";
 
 const ItemCount = ({ stock, initial, onAdd}) => {
     const [count, setCount] = useState(initial)
-     
+
     const incrementar = () => {
         setCount(count + 1)
     }
     const decrementar = () => {
         setCount(valAnt => valAnt > 0 ? count - 1 : count)
     }
-   /*  const agregarCarrito = () =>{
+    const agregarCarrito = () => {
         count <= stock ? onAdd(count) : alert("No hay suficientes productos")
-    } */
-    const agregarCarrito = () =>{
-        count <= stock ? onAdd(count) : alert("No hay suficientes productos")
-    } 
+    }
 
     return (
         <div>
