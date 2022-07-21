@@ -11,6 +11,7 @@ import ItemListContainer from './components/ItemListContainer';
 import { Cart } from './cart/Cart';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
+import SobreNosotros from './SobreNostros';
 
 const root = createRoot(document.getElementById('root'));
 root.render(
@@ -24,6 +25,7 @@ root.render(
             <Route path='episodio/:id' element={<EpisodeDetailContainer />} />
             <Route path='*' element={<PageNotFound />} />
             <Route path='carrito' element={<Cart/> } />
+            <Route path='sobre-nostros' element={<SobreNosotros/> } />
         </Routes>
         <Footer />
     </BrowserRouter>
