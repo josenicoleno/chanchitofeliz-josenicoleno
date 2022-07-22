@@ -15,7 +15,7 @@ const SearchForm = ({ onSearch }) => {
     return (
         <form onSubmit={sendForm}>
             <div className="input-group mb-3">
-                <input type="text" className="form-control" name="search" onChange={onChangeInput} />
+                <input type="text" className="form-control" placeholder="Buscar" name="search" onChange={onChangeInput} />
                 <button className="btn btn-outline-secondary" type="submit">Buscar</button>
             </div>
         </form>
