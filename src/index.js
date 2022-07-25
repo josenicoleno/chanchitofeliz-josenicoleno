@@ -12,9 +12,11 @@ import { Cart } from './cart/Cart';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import SobreNosotros from './SobreNostros';
-import cartContext from './context/cartContext';
+import { CartContextProvider } from './context/CartContext';
+
 const root = createRoot(document.getElementById('root'));
 root.render(
+    <CartContextProvider value={[]}>
         <BrowserRouter>
             <NavBar />
             <Routes>
@@ -29,4 +31,5 @@ root.render(
             </Routes>
             <Footer />
         </BrowserRouter>
+    </CartContextProvider>
 );
