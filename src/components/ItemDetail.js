@@ -6,7 +6,7 @@ const ItemDetail = ({ item }) => {
     const [valor, setValor] = useState(0)
     const [showItemCount, setShowItemCount] = useState(true)
     const [showList, setShowList] = useState(false)
-
+    
     function onAddCallback(n) {
         setValor(n)
         n && setShowItemCount(false)
@@ -45,8 +45,7 @@ const ItemDetail = ({ item }) => {
                         </div>
                     </div>
                 </div>
-                {!showList && <button onClick={clickListener}>Ver episodios</button>}
-                {showList && <button onClick={clickListener}>Ocultar episodios</button>}
+                {showList ? <button onClick={clickListener}>Ocultar episodios</button> : <button onClick={clickListener}>Ver episodios</button>} 
                 <div>
                     {showList &&
                         <ol className='list-group list-group-numbered'>
