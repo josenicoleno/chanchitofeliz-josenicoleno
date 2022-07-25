@@ -12,21 +12,21 @@ import { Cart } from './cart/Cart';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import SobreNosotros from './SobreNostros';
-
+import cartContext from './context/cartContext';
 const root = createRoot(document.getElementById('root'));
 root.render(
-    <BrowserRouter>
-        <NavBar />
-        <Routes>
-            <Route path='/' element={<App />} />
-            <Route index element={<ItemListContainer />} />
-            <Route path='producto/:id' element={<ItemDetailContainer />} />
-            <Route path='episodios' element={<Episodies />} />
-            <Route path='episodio/:id' element={<EpisodeDetailContainer />} />
-            <Route path='*' element={<PageNotFound />} />
-            <Route path='carrito' element={<Cart/> } />
-            <Route path='sobre-nostros' element={<SobreNosotros/> } />
-        </Routes>
-        <Footer />
-    </BrowserRouter>
+        <BrowserRouter>
+            <NavBar />
+            <Routes>
+                <Route path='/' element={<App />} />
+                <Route index element={<ItemListContainer />} />
+                <Route path='producto/:id' element={<ItemDetailContainer />} />
+                <Route path='episodios' element={<Episodies />} />
+                <Route path='episodio/:id' element={<EpisodeDetailContainer />} />
+                <Route path='*' element={<PageNotFound />} />
+                <Route path='carrito' element={<Cart />} />
+                <Route path='sobre-nostros' element={<SobreNosotros />} />
+            </Routes>
+            <Footer />
+        </BrowserRouter>
 );

@@ -5,13 +5,16 @@ import { Link } from 'react-router-dom';
 const ItemDetail = ({ item }) => {
     const [valor, setValor] = useState(0)
     const [showItemCount, setShowItemCount] = useState(true)
+    const [showList, setShowList] = useState(false)
 
     function onAddCallback(n) {
         setValor(n)
         n && setShowItemCount(false)
         alert(`${n} productos agregados`)
     }
-
+    function clickListener(evento) {
+        setShowList(!showList)
+    }
     return (
         <div>{item.id
             ? (<div className="container">
@@ -31,7 +34,7 @@ const ItemDetail = ({ item }) => {
                                 <h3 className="product-title">{item.name}</h3>
                                 <p className="product-description">{item.name}</p>
                                 {showItemCount
-                                    ? <ItemCount stock={5} initial={1} onAdd={onAddCallback}/>
+                                    ? <ItemCount stock={5} initial={1} onAdd={onAddCallback} />
                                     : (<>
                                         <h3>{valor}</h3>
                                         <Link to='/carrito'>
@@ -41,6 +44,21 @@ const ItemDetail = ({ item }) => {
                             </div>
                         </div>
                     </div>
+                </div>
+                {!showList && <button onClick={clickListener}>Ver episodios</button>}
+                {showList && <button onClick={clickListener}>Ocultar episodios</button>}
+                <div>
+                    {showList &&
+                        <ol className='list-group list-group-numbered'>
+                            {item.episode.map((data, i) => (
+                                <li
+                                    className="list-group-item d-flex justify-content-between align-item-start"
+                                    key={i}
+                                >
+                                    {data}
+                                </li>
+                            ))}
+                        </ol>}
                 </div>
             </div>)
             : (<h3>No hay elementos</h3>)
