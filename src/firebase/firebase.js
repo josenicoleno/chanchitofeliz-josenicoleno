@@ -25,15 +25,12 @@ getDoc(docRef).then((snapshot) => {
 
 const colRef = collection(db, 'items')
 
-const q = query(colRef,
-    where("done", "==", true),
-    limit(1),
-    orderBy('date', 'asc'))
-
+//const q = query(colRef,where("done", "==", true),  limit(1), orderBy('date', 'asc'))
+/* 
 getDocs(q).then((snap) => {
     console.log(
         snap.docs.map((document) => ({
             id: document.id,
             ...document.data(),
         })))
-})
+})  */

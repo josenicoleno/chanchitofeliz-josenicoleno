@@ -12,7 +12,7 @@ import { Cart } from './cart/Cart';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import SobreNosotros from './SobreNostros';
-import { CartContextProvider } from './context/CartContext';
+import CartContext, { CartContextProvider } from './context/cartContext';
 
 const root = createRoot(document.getElementById('root'));
 root.render(
