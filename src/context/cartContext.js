@@ -1,26 +1,38 @@
-import React, { createContext, useState, useContext } from 'react';
+import React, { createContext, useState, useContext, useEffect } from 'react';
+import { insertProduct, updateProduct, removeProduct, removeAllProducts } from '../firebase/firebase';
 
 const CartContext = createContext({});
-
-export const CartContextProvider = ({ tasks, children }) => {
-    const [items, setItems] = useState(tasks)
+export const CartContextProvider = ({ products, children }) => {
+    const [carrito, setCarrito] = useState(products)
     
-    const addItem = (item, quantity) => {
+    useEffect(() => {
+        setCarrito(products)
+    }, [products])
+
+    const addProduct = async (product, quantity) => {
         //agregar una cantidad de un articulo
-        const _tasks = items.concat({id: item.id, name: item.name, quantity: quantity})
-        setItems(_tasks)
+        const producto = {id: product.id, name:product.name, quantity:quantity}
+        const id = await insertProduct(producto)
+        const _carrito = products.concat(producto)
+        setCarrito(_carrito)
     }
 
-    const removeItem = (itemId) => {
-        //remover un articulo
-        const _tasks = items.filter((el, i) => i !== itemId);
-        setItems(_tasks);
+    const deleteProduct = (ProductId) => {
+        //remover un articulo 
+        const _carrito = products.filter((el, i) => i !== ProductId);
+        try{
+            removeProduct(products[ProductId].id)
+            setCarrito(_carrito)
+        }catch{}
     }
     const clear = () => {
         //remover todos los articulos
-        const _tasks = {}
-        setItems(_tasks)
+        const products_ = products.map((product) => ({...product}))
+        removeAllProducts(products_)
+      /*   const _carrito = {} */
+        setCarrito(products_)
     }
+
     function  isInCart(id) {
         let bool = false
 
@@ -30,9 +42,9 @@ export const CartContextProvider = ({ tasks, children }) => {
     return (
         <CartContext.Provider
             value={{
-                tasks: items,
-                addItem,
-                removeItem,
+                products: carrito,
+                addProduct,
+                removeProduct,
                 clear,
                 isInCart
             }}
