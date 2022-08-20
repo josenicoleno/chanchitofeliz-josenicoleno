@@ -11,11 +11,11 @@ const Episodies = () => {
             .then((res) => res.json())
             .then((json) => {
                 setList(json.results)
-                setIsLoading(false)
             })
             .catch((err) => {
                 setErr('Ocurrió un error inesperado')
             })
+            .finally(()=>setIsLoading(false))
     }, [])
 
     return (

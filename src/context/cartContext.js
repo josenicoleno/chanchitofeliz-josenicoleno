@@ -44,7 +44,7 @@ export const CartContextProvider = ({ products, children }) => {
             value={{
                 products: carrito,
                 addProduct,
-                removeProduct,
+                deleteProduct,
                 clear,
                 isInCart
             }}

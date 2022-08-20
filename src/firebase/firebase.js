@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { collection, doc, query, getDoc, getFirestore, addDoc, setDoc, writeBatch, deleteDoc, onSnapshot } from 'firebase/firestore'
+import { collection, doc, query, getDoc, getDocs, getFirestore, addDoc, setDoc, writeBatch, deleteDoc, onSnapshot } from 'firebase/firestore'
 
 const firebaseConfig = {
     apiKey: "AIzaSyBV7smNYlC6CNqcm7q5xByzBXrcCdmFpKQ",
@@ -20,7 +20,7 @@ const db = getFirestore(app)
 export const getProducts = () =>{
     const colRef = collection(db, 'productos')
     const q = query(colRef)
-    return getDoc(q)
+    return getDocs(q)
 }
 
 /* trae el producto */
@@ -33,7 +33,7 @@ export const getProduct = (id) =>{
 export const getCart = () =>{
     const colRef = collection(db, 'carrito')
     const q = query(colRef)
-    return getDoc(q)
+    return getDocs(q)
 }
 
 /*inserta un producto al carrito */

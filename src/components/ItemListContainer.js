@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+/* import { getProduct, getProducts } from "../firebase/firebase"; */
 /* import ItemCount from "./ItemCount"; */
 import ItemList from "./ItemList";
 import SearchForm from "./SearchForm";
@@ -35,6 +36,21 @@ const ItemListContainer = ({ greeting }) => {
             .finally(() => setLoading(false))
     }
 
+  /*   useEffect(() => {
+        getProducts()
+            .then((snp) => {
+                setList(
+                    snp.docs.map((document) => ({
+                        ...document.data(),
+                        id: document.id
+                    }
+                    ))
+                )
+            })
+            .catch(() => setErr('Ocurrio un error'))
+            .finally(()=>setLoading(false))
+    }, [])
+ */
     useEffect(() => {
         fetch("https://rickandmortyapi.com/api/character")
             .then((res) => res.json())
